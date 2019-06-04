@@ -1,10 +1,9 @@
 <template>
-  <div class="la-boom">
-    <!-- <h1>{{ titlePage }}</h1> -->
-    <img src="../../../assets/illustrations/le_dragon/dragon1.jpg" alt>
-    <img src="../../../assets/illustrations/le_dragon/dragon2.jpg" alt>
-    <img src="../../../assets/illustrations/le_dragon/dragon3.jpg" alt>
-    <img src="../../../assets/illustrations/le_dragon/dragon4.jpg" alt>
+  <div class="le-dragon-content">
+    <img src="../../../assets/illustrations/le_dragon/dragon1.jpg" alt="Le Dragon first">
+    <img src="../../../assets/illustrations/le_dragon/dragon2.jpg" alt="Le Dragon second">
+    <img src="../../../assets/illustrations/le_dragon/dragon3.jpg" alt="Le Dragon third">
+    <img src="../../../assets/illustrations/le_dragon/dragon4.jpg" alt="Le Dragon fourth">
   </div>
 </template>
 
@@ -20,6 +19,13 @@ export default {
 
 <style scoped>
 img {
-  height: 90vh;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 768px){
+  img {
+    width: 100vw;
+    height: auto;
+  }
 }
 </style>

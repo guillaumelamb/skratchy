@@ -1,9 +1,8 @@
 <template>
-  <div class="la-boom">
-    <!-- <h1>{{ titlePage }}</h1> -->
-    <img src="../../../assets/illustrations/la_boom/la_boom-cover.jpg" alt>
-    <img src="../../../assets/illustrations/la_boom/la_boom-inside.jpg" alt>
-    <img src="../../../assets/illustrations/la_boom/la_boom-back.jpg" alt>
+  <div class="la-boom-content">
+    <img src="../../../assets/illustrations/la_boom/la_boom-cover-full.jpg" alt="La Boom cover">
+    <img src="../../../assets/illustrations/la_boom/la_boom-inside.jpg" class="inside" alt="La Boom inside">
+    <img src="../../../assets/illustrations/la_boom/la_boom-back.jpg" alt="La Boom back">
   </div>
 </template>
 
@@ -11,11 +10,7 @@
 export default {
   data() {
     return {
-      titlePage: "la boom content!",
-      goBack: {
-        name: "go back",
-        img: require("../../../assets/icons/back.svg")
-      }
+      titlePage: "la boom content!"
     };
   }
 };
@@ -32,22 +27,16 @@ export default {
 }
 img {
   height: 80vh;
+  border: 1px solid rgb(0, 0, 0);
 }
-.back-button {
-  position: fixed;
-  top: 105px;
-  left: 55px;
+img.inside{
+  width: 95%;
+  height: auto;
 }
-.back-button img {
-  animation-name: example 2s infinite;
-  animation: bounceLeft 1.5s infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  width: 50px;
-  height: 50px;
+@media only screen and (max-width: 768px){
+  img, img.inside {
+    width: 80vw;
+    height: auto;
+  }
 }
 </style>

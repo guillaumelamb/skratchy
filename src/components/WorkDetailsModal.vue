@@ -12,7 +12,6 @@
                     <h3 class="work-type">Work type</h3>
                     <h1 class="work-name">Work name</h1>
                 </slot>
-                <hr>
               </div>
           </div>
 
@@ -31,10 +30,23 @@
 
 <script>
 export default {
-  props: ["id", "title", "isModalOpen", "categoryItemClass"],
+  props: {
+    id: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
+    isModalOpen: {
+      type: Boolean,
+    },
+    categoryItemClass: {
+      type: String,
+    }
+  },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit('close');
     }
   }
 };
@@ -52,6 +64,7 @@ export default {
   display: flex;
   transition: opacity 0.3s ease;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .modal-wrapper {
   display: table-cell;
@@ -69,7 +82,7 @@ export default {
   background-color: #232425;
   border-radius: 4px;
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
   padding-bottom: 45px;
   position: absolute;
   left: 50%;
@@ -83,7 +96,7 @@ export default {
 .content-text{
     padding: 15px 30px 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .modal-header {
@@ -93,20 +106,14 @@ export default {
 
 .modal-header h1.work-name {
   margin-top: 0;
-  font-size: 3em;
+  font-size: 14px;
 }
 
 .modal-header h3.work-type {
   font-weight: 300;
   text-transform: uppercase;
-}
-hr{
-      color: #494a4d;
-    background-color: #494a4d;
-    height: 1px;
-    border: 0;
-    margin-bottom: 15px;
-    width: 100%;
+  letter-spacing: .11em;
+  font-size: 15px;
 }
 
 .modal-body {
@@ -136,7 +143,7 @@ hr{
   width: 45px;
   text-align: center;
   display: block;
-  font-size: 17px;
+  font-size: 14px;
   letter-spacing: -0.01em;
   line-height: 1.1em;
   color: #fff;
@@ -149,35 +156,127 @@ hr{
   background-color: rgba(0, 0, 0, 0.1);
   margin: 45px auto 20px;
   cursor: pointer;
-  -webkit-transition: all 0.5s cubic-bezier(0.175, 1.2, 0.32, 1.275);
-  -o-transition: all 0.5s cubic-bezier(0.175, 1.2, 0.32, 1.275);
-  transition: all 0.5s cubic-bezier(0.175, 1.2, 0.32, 1.275);
+  transition: all 0.2s;
 }
 .back-button:hover {
   color: rgba(0, 0, 0, 0.9);
   background-color: rgba(255, 255, 255, 0.8);
 }
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
 .modal-enter {
   opacity: 0;
 }
-
 .modal-leave-active {
   opacity: 0;
 }
-
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+.modal-container.le-loup{
+  background-color: rgb(0, 0, 0);
+}
+.modal-container.wad-mag{
+  background-color: rgb(206,	206,	206);
+}
+.modal-container.la-boom,
+.modal-container.restaurant,
+.modal-container.basalte,
+.modal-container.moma,
+.modal-container.liberty-bell,
+.modal-container.pepito,
+.modal-container.benetton{
+  background-color: white;
+}
+.modal-container.logo-creation,
+.modal-container.cherry{
+  background-color: black;
+}
+.la-boom .back-button{
+  background-color: rgb(94, 122, 182);
+  color: rgb(255,	253,	118);
+}	
+.la-boom .back-button:hover{
+  background-color: rgb(252, 77, 175);
+  color: rgb(255,	253,	118);
+}
+.le-dragon .back-button:hover{
+  background-color: rgb(252, 63,	59);
+}
+.restaurant .back-button{
+  background-color: rgb(37, 43, 130);
+  color: white;
+}
+.restaurant .back-button:hover{
+  background-color: rgb(127, 236, 229);
+  color: rgb(37, 43, 130);
+}
+.moma .back-button,
+.wad-mag .back-button,
+.benetton .back-button,
+.liberty-bell .back-button{
+  background-color: black;
+  color: white;
+}
+.moma .back-button:hover,
+.wad-mag .back-button:hover,
+.benetton .back-button:hover,
+.liberty-bell .back-button:hover{
+  background-color: rgba(0, 0, 0, .7);
+  color: white;
+}
+.basalte .back-button{
+  background-color: rgb(9,	30,	222);
+  color: rgb(249,	248,	56);
+}
+.basalte .back-button:hover{
+  background-color: rgb(53,	221,	102);
+  color: white;
+}
+.pepito .back-button{
+  background-color: rgb(145, 50, 31);
+  color: white;
+}
+.pepito .back-button:hover{
+  background-color: rgb(232, 35, 50);
+  color: white;
+}
+@media only screen and (min-width: 415px) and (max-width: 1180px){
+  .close {
+    padding: 15px;
+  top: 45px;
+  right: 45px;
+  background-color: rgba(0, 0, 0, 0.5);
+  }
+  .close img{
+    vertical-align: middle;
+    width: 19px;
+  }
+}
+@media only screen and (max-width: 414px){
+  .modal-container{
+    height: auto;
+    width: 100vw;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #232425;
+    border-collapse: separate;
+    border-radius: 4px!important;
+    color: #fff;
+    overflow: hidden;
+    padding-bottom: 60px;
+    position: absolute;
+  }
+  .close {
+  padding: 15px;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  }
+  .close img{
+    vertical-align: middle;
+    width: 19px;
+  }
 }
 </style>
 

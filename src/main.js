@@ -3,10 +3,11 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Homepage from './components/Homepage.vue'
 import Illustration from './components/arts/Illustration.vue'
-import ElectricAnimals from './components/arts/illustrations/ElectricAnimals.vue'
-import LaBoom from './components/arts/illustrations/LaBoom.vue'
+import LicenceProject from './components/arts/LicenceProject.vue'
 import Graphism from './components/arts/Graphism.vue'
 import Photography from './components/arts/Photography.vue'
+import Typography from './components/arts/Typography.vue'
+import NotFound from './components/NotFound.vue'
 
 Vue.config.productionTip = false
 
@@ -19,13 +20,8 @@ const routes = [{
     component: Illustration,
   },
   {
-    path: '/illustration/electric-animals',
-    component: ElectricAnimals
-
-  },
-  {
-    path: '/illustration/la-boom',
-    component: LaBoom
+    path: '/licence-project',
+    component: LicenceProject,
   },
   {
     path: '/graphism',
@@ -34,20 +30,22 @@ const routes = [{
   {
     path: '/photography',
     component: Photography
+  },
+  {
+    path: '/typography',
+    component: Typography
+  },
+  {
+    path: '/404',
+    component: NotFound
+  },  
+  {
+    path: '*', 
+    redirect: '/404'
   }
 ]
 const router = new VueRouter({
   routes,
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     return savedPosition
-  //   } else {
-  //     return {
-  //       x: 0,
-  //       y: 0
-  //     }
-  //   }
-  // }
 })
 
 Vue.use(VueRouter)

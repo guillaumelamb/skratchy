@@ -11,48 +11,41 @@ export default {
   data() {
     return {
       artName: "photography",
-      mainTitle: "Photography_",
+      mainTitle: "Photography",
       photographyCategories: [{
           name: "portraits",
           type: "",
           class: "portraits",
-          image: require("../../assets/photographies/portrait.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/photographies/portraits/portraits-thumbnail.jpg"),
+          componentName: "portraitsContent"
         },
         {
           name: "mongolie",
           type: "",
           class: "mongolia",
-          image: require("../../assets/photographies/mongolia.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/photographies/mongolia/mongolia-thumbnail.jpg"),
+          componentName: "mongoliaContent"
         },
         {
           name: "danse",
           type: "",
           class: "dance",
-          image: require("../../assets/photographies/mongolia.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/photographies/dance/dance-thumbnail.jpg"),
+          componentName: "danceContent"
         },
         {
           name: "poser un lapin",
           type: "",
           class: "rabbit",
-          image: require("../../assets/photographies/mongolia.png"),
-          url: "/illustration/electric-animals"
-        },
-        {
-          name: "le mouvement",
-          type: "",
-          class: "movement",
-          image: require("../../assets/photographies/mongolia.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/photographies/rabbit/rabbit-thumbnail.jpg"),
+          componentName: "rabbitContent"
         },
         {
           name: "new york",
           type: "",
           class: "nyc",
-          image: require("../../assets/photographies/mongolia.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/photographies/ny/ny-thumbnail.jpg"),
+          componentName: "nyContent"
         }
       ]
     };

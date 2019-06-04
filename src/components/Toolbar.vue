@@ -2,29 +2,30 @@
   <div class="navbar">
     <div class="logo">
       <router-link to="/">
-        <img src="../assets/logo.png" alt="">
+        <img src="../assets/clara.png" alt="">
       </router-link>
     </div>
-    <div v-show="!aboutActive" class="about-button">
-      <button @click="aboutActive = !aboutActive; mounted()">about</button>
+    <div v-show="!isAboutActive" class="about-button">
+      <button @click="handleButtonClick()">about</button>
     </div>
     <transition name="fade">
-      <div v-show="aboutActive" class="about">
-        <div v-show="aboutActive" class="close-button" @click="aboutActive = !aboutActive; destroyed()">
-          
-            <img src="../assets/icons/close.svg" alt="">
+      <div v-show="isAboutActive" class="about">
+        <div v-show="isAboutActive" class="close-button" @click="handleClose()">
+          <img src="../assets/icons/close.svg" alt="">
         </div>
-        <h1>{{ aboutTitle }}</h1>
+        <h1 class="about-title">{{ aboutTitle }}</h1>
         <h1 class="name-title">{{ name }}</h1>
         <div class="info">
-          <div class="column"></div>
           <div class="column">
-            <a class="send-email" href="mailto:webmaster@example.com">
-              {{ emailTitle }}
-            </a>
+          </div>
+          <div class="column">
           </div>
         </div>
-
+        <div class="email-button">
+          <a class="send-email" href="mailto:claradelahaye@live.fr">
+              {{ emailTitle }}
+            </a>
+        </div>
         <div class="social-networks">
           <ul class="social-networks-list">
             <li :key="JSON.stringify(socialNetwork)" v-for="socialNetwork in socialNetworks">
@@ -44,7 +45,7 @@ export default {
   data() {
     return {
       name: "Clara Delahaye",
-      aboutActive: false,
+      isAboutActive: false,
       aboutTitle: "about",
       emailTitle: "email me!",
       socialNetworks: [{
@@ -55,7 +56,7 @@ export default {
         {
           name: "linkedin",
           image: require("../assets/icons/linked-in-logo.png"),
-          url: "https://www.instagram.com/___skratchy___/"
+          url: "https://fr.linkedin.com/in/clara-delahaye-746055120"
         }
       ]
     };
@@ -69,6 +70,17 @@ export default {
       } else {
         el.classList.remove(className);
       }
+    },
+    toggleIsAboutActive() {
+      this.isAboutActive = !this.isAboutActive;
+    },
+    handleButtonClick() {
+      this.toggleIsAboutActive();
+      this.toggleBodyClass('addClass', 'no-scroll');
+    },
+    handleClose() {
+      this.toggleIsAboutActive();
+      this.toggleBodyClass('removeClass', 'no-scroll');
     },
     mounted() {
       this.toggleBodyClass('addClass', 'no-scroll');
@@ -93,6 +105,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 2;
+  transition: all .5s;
 }
 
 .navbar img {
@@ -101,7 +114,6 @@ export default {
 
 .navbar ul {
   list-style-type: none;
-  display: inline;
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -111,6 +123,9 @@ export default {
 .navbar li {
   margin-right: 20px;
 }
+.logo{
+  padding-top: 4px;
+}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -118,10 +133,10 @@ export default {
 }
 
 .fade-enter,
-  .fade-leave-to
+.fade-leave-to
 
-  /* .fade-leave-active below version 2.1.8 */
- {
+/* .fade-leave-active below version 2.1.8 */
+  {
   opacity: 0;
 }
 
@@ -170,20 +185,24 @@ export default {
   border-radius: 100px;
   cursor: pointer;
 }
+
 .close-button img {
   width: 25px;
 }
-
 
 .close-button button {
   color: white;
 }
 
+.about .about-title {
+  font-size: 20px;
+}
+
 .about .name-title {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 54px;
-  margin-top: 50px;
+  font-weight: 300;
+  text-transform: capitalize;
+  font-size: 25px;
+  margin-top: 72px;
 }
 
 .about .info {
@@ -196,13 +215,15 @@ export default {
 
 .about a.send-email {
   color: white;
-  padding-left: 40px;
-  background-color: gray;
-  padding-right: 40px;
-  padding: 1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  width: 10%;
+    padding-left: 40px;
+    background-color: gray;
+    padding-right: 40px;
+    padding: 10px 27px;
+    border-radius: 40px;
+    text-transform: lowercase;
+    text-decoration: none;
+    width: 10%;
+    font-size: 14px;
 }
 
 .about ul.social-networks-list {
@@ -227,5 +248,31 @@ export default {
   position: absolute;
   bottom: 30px;
   width: 100%;
+}
+
+.about .email-button {
+  position: absolute;
+  bottom: 125px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #bebebe;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    transition: all .5s;
+  }
+
+  .about .name-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  .navbar {
+    padding: 20px;
+  }
 }
 </style>

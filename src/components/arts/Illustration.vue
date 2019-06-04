@@ -9,82 +9,66 @@ export default {
   data() {
     return {
       artName: "illustration",
-      mainTitle: "Illustrations_",
+      mainTitle: "Illustration",
       illustrationCategories: [
-        {
-          name: "electric animals",
-          type: "licence project",
-          class: "electric-animals",
-          image: require("../../assets/illustrations/electric_animals/electric_animals-thumbnail.png"),
-          url: "/illustration/electric-animals",
-          componentName: "electricAnimalsContent"
-        },
         {
           name: "le dragon",
           type: "book",
           class: "le-dragon",
-          image: require("../../assets/illustrations/le_dragon/dragon1.jpg"),
-          url: "/illustration/electric-animals",
+          image: require("../../assets/illustrations/le_dragon/le_dragon-thumbnail.jpg"),
           componentName: "leDragonContent"
         },
         {
           name: "la boom",
           type: "vinyl",
           class: "la-boom",
-          image: require("../../assets/illustrations/la_boom/la_boom-cover.jpg"),
-          url: "/illustration/la-boom",
+          image: require("../../assets/illustrations/la_boom/la_boom-thumbnail.jpg"),
           componentName: "laBoomContent"
         },
         {
           name: "dessins de presse",
           class: "press-drawings",
-          image: require("../../assets/illustrations/press/press-thumbnail.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/press/press-thumbnail.jpg"),
+          componentName: "pressContent"
         },
         {
           name: "caricature",
           class: "caricature",
-          image: require("../../assets/illustrations/caricature/caricature.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/caricature/caricature.jpg"),
+          componentName: "caricatureContent"
         },
         {
           name: "croquis",
           type: "",
           class: "sketches",
-          image: require("../../assets/illustrations/electric_animals/electric_animals-thumbnail.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/sketches/sketch-thumbnail.jpg"),
+          componentName: "sketchesContent"
         },
         {
           name: "dessin d'observation",
           type: "",
           class: "observation-drawing",
-          image: require("../../assets/illustrations/electric_animals/electric_animals-thumbnail.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/observation-drawing/observation-1.jpg"),
+          componentName: "observationContent"
         },
         {
           name: "hippocampe",
           type: "dessin d'observation",
           class: "seahorse",
-          image: require("../../assets/illustrations/electric_animals/electric_animals-thumbnail.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/observation-drawing/seahorse-thumbnail.jpg"),
+          componentName: "seahorseContent"
         },
         {
-          name: "wolf",
-          class: "wolf",
-          image: require("../../assets/illustrations/wolf/wolf.png"),
-          url: "/illustration/electric-animals"
+          name: "le loup",
+          class: "le-loup",
+          image: require("../../assets/illustrations/wolf/le_loup-thumbnail.jpg"),
+          componentName: "leLoupContent"
         },
         {
           name: "thérapie taxi",
           class: "taxi",
-          image: require("../../assets/illustrations/wolf/wolf.png"),
-          url: "/illustration/electric-animals"
-        },
-        {
-          name: "sin city",
-          class: "sin-city",
-          image: require("../../assets/illustrations/wolf/wolf.png"),
-          url: "/illustration/electric-animals"
+          image: require("../../assets/illustrations/therapie-taxi/therapie-thumbnail.jpg"),
+          componentName: "therapieContent"
         }
       ]
     };
